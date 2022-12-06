@@ -1,0 +1,58 @@
+/* ------ */
+/* FOOTER */
+/* ------ */
+.footer {
+   background-color: $color-dark-gray-2;
+   font-size: 1.5rem;
+
+   &__logo {
+      width: 15rem;
+      height: auto;
+   }
+
+   &__navigation {
+      display: inline-block;
+      padding-top: 2rem;
+      border-top: 1px solid $color-light-gray;
+   }
+
+   &__list {
+      list-style: none;
+   }
+
+   &__item {
+      display: inline-block;
+
+      &:not(:last-of-type) {
+         margin-right: 2rem;
+      }
+   }
+
+   &__link {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $color-light-gray;
+      display: inline-block;
+      transition: all 0.2s;
+
+      &:hover {
+         transform: rotate(10deg) scale(1.1);
+         color: $color-dark-green;
+         background-color: #222;
+      }
+   }
+
+   &__copyright {
+      padding-top: 2rem;
+      border-top: 1px solid $color-light-gray;
+      display: inline-block;
+      float: right;
+      width: 86%;
+
+      @include respond($phone) {
+         float: none;
+         width: 100%;
+         margin-top: 2rem;
+      }
+   }
+}

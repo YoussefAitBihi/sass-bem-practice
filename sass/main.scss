@@ -1,0 +1,25 @@
+// This file contains only the import files scss (partials)
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+@import 'base/animations';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utility';
+
+@import 'components/bg-video';
+@import 'components/composition';
+@import 'components/button';
+@import 'components/card';
+@import 'components/feature';
+@import 'components/form-book';
+@import 'components/popup';
+@import 'components/testimonial';
+
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+
+@import 'pages/home';

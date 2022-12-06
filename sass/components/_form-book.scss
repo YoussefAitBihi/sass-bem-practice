@@ -1,0 +1,182 @@
+.form-book-box {
+   // The percentage value represents the color-stop points
+   background: linear-gradient(
+         100deg,
+         rgba($color-white, 0.8) 0 50%,
+         transparent 50%
+      ),
+      url(../img/nat-10.jpg) center center / cover no-repeat;
+   border-radius: 3px;
+   box-shadow: 0 1.5rem 5rem rgba($color-black, 0.15);
+
+   @include respondMax($tablet-port) {
+      background: linear-gradient(
+            100deg,
+            rgba($color-white, 0.8),
+            rgba($color-white, 0.9)
+         ),
+         url(../img/nat-10.jpg) center center / cover no-repeat;
+      border-radius: 3px;
+      box-shadow: 0 1.5rem 5rem rgba($color-black, 0.15);
+   }
+}
+
+.form-book {
+   width: 50%;
+   padding: 7rem;
+
+   @include respondMax($tablet-port) {
+      width: 100%;
+      padding: 5rem;
+   }
+
+   &__group {
+      // Related to the parent element
+      position: relative;
+      width: 80%;
+      &:not(:last-of-type) {
+         margin-bottom: 4rem;
+      }
+
+      @include respond($phone) {
+         width: 100%;
+      }
+   }
+
+   /*************
+   * INPUT FIELD
+   *************/
+
+   // Pseudo-elements can only be defined (or better said are only supported) on container elements.
+   &__input {
+      // So that we can use box model properties
+      display: block;
+      width: 100%;
+      padding: 1.4rem 2rem;
+      background-color: $color-white;
+      color: $color-dark-gray;
+      border: none;
+      border-radius: 1px;
+      // The input field doesn't take the font properties
+      font-family: inherit;
+      font-size: 1.5rem;
+      font-weight: 500;
+      transition: all 0.2s;
+
+      &:focus {
+         outline: none; // DO NOT HIDE OUTLINE BECAUSE OF THE ACCESSIBILITY
+         box-shadow: 0 1.5rem 5rem rgba($color-black, 0.15);
+      }
+   }
+
+   &__input::placeholder {
+      font-family: inherit;
+      font-size: 1.3rem;
+      color: $color-shade-gray;
+   }
+
+   // When we focus
+   &__input:focus ~ &__animation {
+      transform: scaleX(1);
+   }
+
+   // When the input value is invalid
+   &__input:invalid ~ &__animation {
+      background-color: $color-dark-orange;
+   }
+
+   // When the input value is valid
+   &__input:valid ~ &__animation {
+      background-color: $color-dark-green;
+   }
+
+   // Input Border Bottom Animation
+   &__animation {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 3px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transition: transform 0.2s;
+   }
+
+   &__label {
+      position: absolute;
+      left: 2rem;
+      transform: translateY(0);
+      font-weight: 700;
+      font-size: 1.1rem;
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.2s;
+   }
+
+   // When the placeholder is displaying
+   &__input:placeholder-shown + &__label {
+      transform: translateY(-2.8rem);
+      opacity: 0;
+      visibility: hidden;
+   }
+
+   /**************
+   * RADIO BUTTON
+   **************/
+   &__group--inline {
+      display: inline-block;
+      width: 49%;
+
+      @include respond($phone) {
+         width: 100%;
+      }
+   }
+
+   &__radio-button {
+      display: none;
+   }
+
+   &__radio-button:checked + &__radio-label-box > &__radio-circle::after {
+      visibility: visible;
+      opacity: 1;
+   }
+
+   &__radio-label-box {
+      cursor: pointer;
+   }
+
+   &__radio-label {
+      font-size: 1.6rem;
+      font-weight: 300;
+      margin-left: 4rem;
+   }
+
+   &__radio-circle {
+      display: inline-block;
+      margin-right: 4rem;
+      width: 3rem;
+      height: 3rem;
+      border: 3px solid $color-dark-green;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::after {
+         content: '';
+         display: block;
+         width: 1.4rem;
+         height: 1.4rem;
+         border-radius: 50%;
+         background-color: $color-dark-green;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         opacity: 0;
+         visibility: hidden;
+         transition: opacity 0.3s;
+      }
+   }
+}

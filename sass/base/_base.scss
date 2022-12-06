@@ -1,0 +1,42 @@
+// contains our definitions like reset ...
+/* Global Rules using universal selector */
+* {
+   margin: 0;
+   padding: 0;
+   /* Don't calculate padding and border to the elements' width and height */
+   box-sizing: inherit;
+}
+
+// When user highlight on a text
+::selection {
+   background-color: rgba($color-light-green, 0.7);
+   color: $color-white;
+}
+
+html {
+   box-sizing: border-box;
+   font-size: 62.5%; /* 62.5% = represents 1rem = 10px, the default value is 16px = 100% */
+
+   @include respond($phone) {
+      font-size: base-font-size(7px); // 1 rem = 7px
+   }
+
+   @include respond($tablet-port) {
+      font-size: base-font-size(8px); // 1rem = 8px
+   }
+
+   @include respond($tablet-land) {
+      font-size: base-font-size(9px); // 1rem = 9px
+   }
+
+   @include respond($big-desktop) {
+      font-size: base-font-size(11px); // 1rem = 11px
+   }
+}
+
+html,
+body {
+   @include respond($phone) {
+      overflow-x: hidden;
+   }
+}

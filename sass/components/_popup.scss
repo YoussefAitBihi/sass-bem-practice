@@ -1,0 +1,126 @@
+.popup {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   padding: 5rem 0;
+   top: 0;
+   left: 0;
+   z-index: 5000;
+   background-color: rgba($color-black, 0.2);
+   backdrop-filter: blur(2px) brightness(0.8);
+   // For animation
+   // Instead of using display: block
+   opacity: 0;
+   transform: scale(0);
+
+   // The :target CSS pseudo-class represents a unique element (the target element) with an id matching the URL's fragment.
+   // Selects an element with an ID matching the current URL's fragment
+   &:target {
+      opacity: 1;
+      transform: scale(1);
+   }
+
+   &:has(&__checkbox:checked) {
+      opacity: 0;
+      transform: scale(0);
+   }
+
+   &__content {
+      width: 80%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 6000;
+      background-color: $color-white;
+
+      @include clearfix;
+   }
+
+   &__checkbox {
+      display: none;
+   }
+
+   &__button-close-box {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+   }
+
+   &__button-close {
+      display: inline-block;
+      font-size: 3rem;
+      color: $color-dark-gray-2;
+      line-height: 2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+         color: $color-dark-green;
+      }
+   }
+
+   &__floated {
+      float: left;
+
+      @include respondMax($tablet-port) {
+         float: none;
+      }
+
+      &--left {
+         width: calc(100% / 3);
+
+         @include respondMax($tablet-port) {
+            width: 100%;
+         }
+      }
+
+      &--right {
+         width: calc((100% / 3) * 2);
+
+         @include respondMax($tablet-port) {
+            width: 100%;
+         }
+      }
+
+      @include clearfix;
+   }
+
+   &__picture {
+      display: block;
+      width: 100%;
+
+      @include respondMax($tablet-port) {
+         float: left;
+         width: 50%;
+      }
+   }
+
+   &__details {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 3rem;
+
+      @include respondMax($tablet-port) {
+         position: static;
+         transform: none;
+      }
+   }
+
+   &__text {
+      column-count: 2;
+      column-gap: 3rem;
+      column-rule: 1px solid $color-light-gray;
+      hyphens: auto;
+
+      @include respondMax($tablet-port) {
+         column-count: 1;
+         column-rule: none;
+         column-gap: normal;
+      }
+   }
+}

@@ -1,0 +1,178 @@
+/* --------------- */
+/* NAVIGATION MENU */
+/* --------------- */
+.navigation {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+
+   &__checkbox {
+      display: none;
+   }
+
+   &__button {
+      display: inline-block;
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      background-color: $color-white;
+      position: fixed;
+      top: 3rem;
+      right: 3rem;
+      z-index: 1000;
+      box-shadow: 0 2rem 5rem rgba($color-black, 0.2);
+      cursor: pointer;
+      transition: all 0.4s;
+
+      @include respond($phone) {
+         width: 6rem;
+         height: 6rem;
+      }
+   }
+
+   &__icon {
+      top: 50%;
+
+      &::before {
+         top: -0.8rem;
+      }
+
+      &::before,
+      &::after {
+         content: '';
+      }
+
+      &,
+      &::before,
+      &::after {
+         display: inline-block;
+         width: 3.5rem;
+         height: 2px;
+         background-color: $color-dark-gray-2;
+         position: absolute;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         transition: all 0.3s;
+      }
+
+      &::after {
+         top: 1.1rem;
+      }
+   }
+
+   &__button:hover &__icon::before {
+      transform: translate(-50%, calc(-50% - 0.15rem));
+   }
+
+   &__button:hover &__icon::after {
+      transform: translate(-50%, calc(-50% + 0.15rem));
+   }
+
+   &__checkbox:checked ~ &__button > &__icon {
+      background-color: transparent;
+   }
+
+   &__checkbox:checked ~ &__button > &__icon::before,
+   &__checkbox:checked ~ &__button > &__icon::after {
+      top: 0;
+   }
+
+   &__checkbox:checked ~ &__button > &__icon::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+   }
+
+   &__checkbox:checked ~ &__button > &__icon::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+   }
+
+   &__bg {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-image: radial-gradient($color-light-green, $color-dark-green);
+      position: fixed;
+      top: 4rem;
+      right: 4rem;
+      z-index: 500;
+      transition: all 0.3s cubic-bezier(0, 0.55, 0.32, 0.83);
+   }
+
+   &__checkbox:checked ~ &__bg {
+      transform: scale(70);
+   }
+
+   &__list {
+      list-style: none;
+      position: fixed;
+      left: 40%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 750;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0, 0.55, 0.32, 0.83);
+
+      @include respond($phone) {
+         width: 100%;
+         text-align: center;
+      }
+   }
+
+   &__checkbox:checked ~ &__list {
+      visibility: visible;
+      opacity: 1;
+      left: 50%;
+   }
+
+   @for $i from 1 through 5 {
+      &__item:nth-child(#{$i}) > &__link::before {
+         content: '0#{$i}';
+         display: inline-block;
+         margin-right: 2rem;
+      }
+   }
+
+   &__link {
+      &:link,
+      &:visited {
+         display: block;
+         text-decoration: none;
+         text-transform: uppercase;
+         padding: 1rem 2rem;
+         font-size: 3rem;
+         font-weight: 300;
+         color: $color-white;
+         // background-image: linear-gradient(
+         //    120deg,
+         //    $color-white 0 50%,
+         //    transparent 50%
+         // );
+         // background-size: 220%;
+         // background-position: 100% 100%; // Default value is 0% 0%
+         transition: all 0.5s;
+         background-image: linear-gradient(
+            120deg,
+            $color-white 0 50%,
+            transparent 50%
+         );
+         background-size: 0 100%;
+         background-repeat: no-repeat;
+         background-position: left bottom;
+
+         &:hover,
+         &:active {
+            background-size: 220% 100%;
+            color: $color-dark-green;
+            transform: translateX(1rem);
+         }
+
+         // &:hover,
+         // &:active {
+         //    background-position: 0;
+         //    color: $color-dark-green;
+         //    transform: translateX(1rem);
+         // }
+      }
+   }
+}

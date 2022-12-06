@@ -1,0 +1,75 @@
+/* ---------------------------------- */
+/* CLEARFIX FOR ZERO-HEIGHT CONTAINER */
+/* ---------------------------------- */
+@mixin clearfix {
+   &::after {
+      content: '';
+      display: block;
+      clear: both;
+   }
+}
+
+/* -------------- */
+/* RESET ANCHORS */
+/* ------------- */
+@mixin btn-reset {
+   // If we need to add margin or padding...
+   display: inline-block;
+   text-decoration: none;
+   text-transform: uppercase;
+   font-size: $btn-font-size;
+   font-weight: 600;
+   border: none;
+   cursor: pointer;
+}
+
+// TOTO: Center horizontally and vertically an element
+
+/* ------------------- */
+/* MEDIA QUERY MANAGER */
+/* ------------------- */
+
+/*
+- Order: Base file (base, typography...) > Layout (Grid, Header, Footer...) > pages > Components.
+
+@content => Control directive added to this mixin to let us to add block of style
+*/
+@mixin respond($breakpoint) {
+   @if $breakpoint == $phone {
+      @media (max-width: $phone) {
+         @content;
+      }
+   } @else if $breakpoint == $tablet-port {
+      @media (min-width: $phone) and (max-width: $tablet-port) {
+         @content;
+      }
+   } @else if $breakpoint == $tablet-land {
+      @media (min-width: $tablet-port) and (max-width: $tablet-land) {
+         @content;
+      }
+   } @else if ($breakpoint == $big-desktop) {
+      @media (min-width: $big-desktop) {
+         @content;
+      }
+   }
+}
+
+// When we wanna group multiple of breakpoints
+@mixin respondMax($breakpoint) {
+   @media (max-width: $breakpoint) {
+      @content;
+   }
+}
+
+@mixin respondMin($breakpoint) {
+   @media (min-width: $breakpoint) {
+      @content;
+   }
+}
+
+/*
+  phone: 599px, from 0 to 599px
+  tablet-portrait: 900px, from 600px to 900px
+  tablet-landscape: 1200px, from 900px to 1200px
+  big-desktop: 1800px  +
+*/

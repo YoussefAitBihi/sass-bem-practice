@@ -1,0 +1,62 @@
+/* ---- */
+/* MAIN */
+/* ---- */
+main {
+   margin-top: -5rem;
+}
+
+/* ------------- */
+/* ABOUT SECTION */
+/* ------------- */
+.section-about {
+   background-color: #f7f7f7;
+}
+
+/* ---------------- */
+/* FEATURES SECTION */
+/* ---------------- */
+.section-features {
+   // background: [background-image] [background-position] / [background-size] [background-repeat] [background-attachment] [background-origin] [background-clip] [background-color];
+   background: linear-gradient(
+         to right bottom,
+         rgba($color-light-green, 0.7),
+         rgba($color-dark-green, 0.8)
+      ),
+      url(../../img/nat-4.jpg) center center / cover no-repeat fixed;
+   // Clip 5rem from this section (First method)
+   clip-path: polygon(0 5rem, 100% 0, 100% calc(100% - 5rem), 0 100%);
+   margin-top: -5rem;
+
+   // (Second method)
+   // transform: skewY(-3deg);
+
+   // & > .row {
+   //    transform: skewY(3deg);
+   // }
+}
+
+/* ------------- */
+/* TOURS SECTION */
+/* ------------- */
+.section-tours {
+   background-color: #eee;
+   margin-top: -5rem;
+}
+
+/* -------------------- */
+/* TESTIMONIALS SECTION */
+/* -------------------- */
+.section-testimonials {
+   position: relative;
+}
+
+/* --------------- */
+/* BOOKING SECTION */
+/* --------------- */
+.section-booking {
+   background: linear-gradient(
+      to right bottom,
+      $color-light-green,
+      $color-dark-green
+   );
+}

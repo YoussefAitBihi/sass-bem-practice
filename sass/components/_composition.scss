@@ -1,0 +1,57 @@
+.composition {
+   position: relative;
+
+   &__photo-box {
+      width: 55%;
+      position: absolute;
+      transition: all $transition-duration;
+      z-index: 1;
+      outline-offset: 1rem;
+      box-shadow: 0 2rem 6rem rgba($color-black, 0.5);
+      border-radius: 0.3rem;
+      overflow: hidden;
+
+      @include respond($phone) {
+         width: calc(100% / 3);
+         position: static;
+         float: left;
+      }
+
+      &:hover {
+         transform: scale(1.03);
+         z-index: 10;
+         outline: 1rem solid $color-medium-green;
+         box-shadow: 0 3rem 9rem rgba($color-black, 0.5);
+      }
+
+      &--p1 {
+         left: 0;
+         top: -3rem;
+      }
+
+      &--p2 {
+         right: 0;
+         top: 0;
+
+         @include respond($phone) {
+            transform: translateY(-1rem) scale(1.1);
+         }
+      }
+
+      &--p3 {
+         left: 20%;
+         top: 10rem;
+      }
+   }
+
+   &__photo {
+      display: block;
+      width: 100%;
+   }
+
+   // When we hover on a specific photo, the rest of photos will scale
+   &:hover &__photo-box:not(:hover) {
+      transform: translate(-1rem) scale(0.9);
+      opacity: 0.5;
+   }
+}

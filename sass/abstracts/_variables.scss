@@ -1,0 +1,69 @@
+/* ---- */
+/* GRID */
+/* ---- */
+$gutter-width: 114rem;
+$gutter-horizontal: 5rem;
+$gutter-vertical: 5rem;
+
+/* --------------- */
+/* VIEWPORTS WIDTH */
+/* --------------- */
+$phone: 37.43em; // 599px => 1em = 16px default font size browser
+$tablet-port: 56.25em; // 900px
+$tablet-land: 74.9375em; // 1199px
+$big-desktop: 112.5em; // 1800px
+
+/* ----------- */
+/* GRAY COLORS */
+/* ----------- */
+$color-light-gray: #f7f7f7;
+$color-shade-gray: #777;
+$color-dark-gray: #999;
+$color-dark-gray-2: #333;
+
+/* ------------ */
+/* GREEN COLORS */
+/* ------------ */
+$color-light-green: #7ed56f;
+$color-medium-green: #55c57a;
+$color-dark-green: #28b485;
+
+/* ------------- */
+/* ORANGE COLORS */
+/* ------------- */
+$color-light-orange: #ffb900;
+$color-dark-orange: #ff7730;
+
+/* ----------- */
+/* BLUE COLORS */
+/* ----------- */
+$color-light-blue: #2998ff;
+$color-dark-blue: #5643fa;
+
+/* -------------------- */
+/* WHITE & BLACK COLORS */
+/* -------------------- */
+$color-white: #fff;
+$color-black: #000;
+
+/* ----- */
+/* FONTS */
+/* ----- */
+$btn-font-size: 1.3rem;
+
+/* --------- */
+/* BOX MODEL */
+/* --------- */
+$padding-section: 15rem;
+
+/* ----------- */
+/* BOX SHADOWS */
+/* ----------- */
+$box-shadow-hover: 0 1rem 2rem rgba($color-black, 0.2);
+$box-shadow-active: 0 1rem 1.3rem rgba($color-black, 0.15);
+
+// Transition duration
+$transition-duration: 0.2s;
+
+// Animations
+$animation-duration: 0.7s;

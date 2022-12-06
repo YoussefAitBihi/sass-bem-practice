@@ -1,0 +1,7 @@
+// base-font-size is a  FUNCTION RETURN BASE FONT SIZE WITH PERCENTAGE UNIT.
+
+@use 'sass:math';
+
+@function base-font-size($font-size) {
+   @return math.percentage($font-size / 16px);
+}

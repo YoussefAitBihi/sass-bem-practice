@@ -1,0 +1,44 @@
+/* Header block */
+.header {
+   height: 100vh;
+   position: relative;
+   background-image: linear-gradient(
+         to right bottom,
+         rgba($color-light-green, 0.8),
+         rgba($color-dark-green, 0.8)
+      ),
+      url(../img/hero-small.jpg);
+   background-size: cover;
+   background-position: center center;
+   background-attachment: fixed;
+   // Clip 5rem from the header
+   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5rem), 0 100%);
+
+   @include respond($phone) {
+      height: 90vh;
+   }
+
+   // For high resolution and big width
+   @media (min-resolution: 192dpi) and (min-width: 37.43em),
+      (min-width: 74.9375em) {
+      background-image: linear-gradient(
+            to right bottom,
+            rgba($color-light-green, 0.8),
+            rgba($color-dark-green, 0.8)
+         ),
+         url(../img/hero.jpg);
+   }
+
+   &__logo-box {
+      width: 7rem;
+      height: 7rem;
+      position: absolute;
+      top: 3rem;
+      left: 3rem;
+   }
+
+   &__logo {
+      display: block;
+      width: 100%;
+   }
+}
